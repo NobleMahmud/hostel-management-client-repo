@@ -1,10 +1,20 @@
 import { Link } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
+// import { useContext } from "react";
+// import { AuthContext } from "../../providers/AuthProvider";
+import useAuth from "../../hooks/useAuth/useAuth";
 
 
 const LogIn = () => {
+    const {googleSignIn} = useAuth();
+    // const {googleSignIn} = useContext(AuthContext);
+
+    const handleGoogle = () =>{
+        googleSignIn();
+    }
     return (
-        <div className=" bg-gradient-to-b from-[#063970] to-blue-200 h-screen overflow-hidden flex items-center justify-center">
-            <div className="bg-white lg:w-5/12 md:6/12 w-10/12 shadow-3xl">
+        <div className=" bg-gradient-to-b from-[#063970] to-blue-200  overflow-hidden flex items-center justify-center">
+            <div className="bg-white lg:w-8/12 md:6/12 w-10/12 shadow-3xl">
                 {/* <div className="bg-gray-800 absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full p-4 md:p-8">
       <svg width="32" height="32" viewBox="0 0 24 24" fill="#FFF">
         <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/>
@@ -17,7 +27,7 @@ const LogIn = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                         </svg>
                     </div>
-                    <h2 className="text-4xl tracking-tight">
+                    <h2 className="text-xl md:text-4xl tracking-tight">
                         Sign in to your account
                     </h2>
                     <span className="text-sm">Don't have an account? <Link to="/signup" className="text-blue-500">
@@ -26,7 +36,7 @@ const LogIn = () => {
                     </span>
                 </div>
                 {/* new */}
-                <form className="p-12 md:p-24 h-96">
+                <form className="p-12 md:p-24">
                     <div className="flex items-center text-lg mb-6 md:mb-8">
                         <svg className="absolute ml-3" width="24" viewBox="0 0 24 24">
                             <path d="M20.822 18.096c-3.439-.794-6.64-1.49-5.09-4.418 4.72-8.912 1.251-13.678-3.732-13.678-5.082 0-8.464 4.949-3.732 13.678 1.597 2.945-1.725 3.641-5.09 4.418-3.073.71-3.188 2.236-3.178 4.904l.004 1h23.99l.004-.969c.012-2.688-.092-4.222-3.176-4.935z" />
@@ -41,6 +51,7 @@ const LogIn = () => {
                     </div>
                     <button className="bg-gradient-to-b from-gray-700 to-gray-900 font-medium p-2 md:p-4 text-white uppercase w-full">Login</button>
                 </form>
+                    <button onClick={handleGoogle} className=" btn text-md md:text-xl  w-1/2 text-center ml-24  md:ml-40 lg:ml-48 mb-20"><FcGoogle />Google</button>
             </div>
         </div>
     );
