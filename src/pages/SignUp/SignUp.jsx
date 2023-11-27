@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import signup from '../../../public/s1.png'
+// import signup from '../../../public/s1.png'
 
 const SignUp = () => {
     return (
@@ -13,7 +13,7 @@ const SignUp = () => {
                 {/* new */}
                 <div className="text-center mt-24">
                     <div className="flex items-center justify-center">
-                        <img className="w-16 h-16" src={signup} alt="" />
+                        {/* <img className="w-16 h-16" src={signup} alt="" /> */}
                     </div>
                     <h2 className="text-4xl tracking-tight">
                         Sign up

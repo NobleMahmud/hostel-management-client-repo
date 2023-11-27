@@ -30,7 +30,7 @@ import {
 } from "@heroicons/react/24/solid";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth/useAuth";
-
+import logo from '../../../../public/logo.png'
 
 
 
@@ -165,23 +165,37 @@ function NavList() {
                     <ListItem className="flex items-center text-blue-gray-100 gap-2 py-2 pr-4">Home</ListItem>
                 </Typography>
             </Link>
-            {/* <NavListMenu /> */}
-            <Typography
-                as="a"
-                href="#"
-                variant="small"
-                color="blue-gray"
-                className="font-medium"
-            >
-                <ListItem className="flex text-blue-gray-100 items-center gap-2 py-2 pr-4">
-                    Contact Us
-                </ListItem>
-            </Typography>
+            <Link to="/meals">
+                <Typography
+                    as="a"
+                    href="#"
+                    variant="small"
+                    color="blue-gray"
+                    className="font-medium"
+                >
+                    <ListItem className="flex items-center text-blue-gray-100 gap-2 py-2 pr-4">Meals</ListItem>
+                </Typography>
+            </Link>
+            <Link to="/upcoming">
+                <Typography
+                    as="a"
+                    href="#"
+                    variant="small"
+                    color="blue-gray"
+                    className="font-medium"
+                >
+                    <ListItem className="flex items-center text-blue-gray-100 gap-2 py-2 pr-4">upcoming meals notification icon</ListItem>
+                </Typography>
+            </Link>
+            
+           
+           
         </List>
     );
 }
 const NavBar = () => {
 
+    
     const { user } = useAuth();
     
 
@@ -194,15 +208,18 @@ const NavBar = () => {
         );
     }, []);
     return (
-        <Navbar className="mx-auto sticky top-0  border-0 max-w-screen-2xl  bg-black text-white rounded-none px-4 py-4">
+        <Navbar className="mx-auto z-50 sticky top-0  border-0 max-w-screen-2xl  bg-black text-white rounded-none px-4 py-4">
             <div className="flex items-center justify-between text-blue-gray-100">
                 <Typography
                     as="a"
-                    href="#"
+                    href="/"
                     variant="h6"
                     className="mr-4 cursor-pointer py-1.5 lg:ml-2"
                 >
-                    MealNest
+                    <div className="flex items-center justify-center">
+                    <img className="w-14 h-14" src={logo} alt="" />
+                    <p>HungryHall</p>
+                    </div>
                 </Typography>
                 <div className="hidden lg:block">
                     <NavList />
