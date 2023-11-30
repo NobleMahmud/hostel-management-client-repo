@@ -1,5 +1,4 @@
 import aboutPic from "../../assets/images/about2.gif"
-import bg from "../../assets/images/bg.gif"
 
 
 const About2 = () => {

@@ -1,11 +1,13 @@
-import React from 'react';
-const MealCard = ({item}) => {
-    const {title, category, img, ingredients, description, price, rating, timeDate, likes, reviews, adminName, adminEmail} = item;
-    console.log(item);
-    return (
-     <div>
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
+
+const MealCard = ({ item }) => {
+  const { title, category, img, ingredients, description, price, rating, timeDate, likes, reviews, adminName, adminEmail } = item;
+  console.log(item);
+  return (
+    <div>
       <div className="flex justify-between m-6">
-  <div className="flex flex-col h-[610px] max-w-lg mx-auto bg-gray-800 rounded-lg">
+        <div className="flex flex-col h-[700px] max-w-lg mx-auto bg-gray-800 rounded-lg">
           <img
             className="rounded-lg object-cover w-full h-[300px] rounded-b-none"
             src={img}
@@ -15,12 +17,12 @@ const MealCard = ({item}) => {
           <div className="flex justify-between -mt-4 px-4">
             <span
               className="inline-block ring-4 bg-red-500 ring-gray-800 rounded-full text-sm font-medium tracking-wide text-gray-100 px-3 pt-0.5"
-              >{title}</span
+            >{title}</span
             >
             <span
               className="flex h-min space-x-1 items-center rounded-full text-gray-400 bg-gray-800 py-1 px-2 text-xs font-medium"
             >
-              <svg
+              {/* <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 text-blue-500"
                 fill="none"
@@ -33,9 +35,9 @@ const MealCard = ({item}) => {
                   strokeWidth="2"
                   d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
-              </svg>
-              <p className="text-blue-500 font-semibold text-xs">
-                6 Mins
+              </svg> */}
+              <p className="text-blue-500 font-semibold text-lg">
+                Reviews: {reviews}
               </p>
             </span>
           </div>
@@ -43,17 +45,33 @@ const MealCard = ({item}) => {
             <h1
               className="text-xl font-medium leading-6 tracking-wide text-gray-300 hover:text-blue-500 cursor-pointer"
             >
-              <a href="#">JIT Mode - A faster, more powerful, on-demand engine for tailwind</a>
+
             </h1>
+            <Rating
+              style={{ maxWidth: 180 }}
+              value={rating}
+              readOnly
+              className=""
+            />
+            {/* <Rating value={4} readonly /> */}
           </div>
           <div className="px-4 space-y-2">
-            <p className="text-gray-400 font-normal leading-5 tracking-wide">
+            <p className="text-gray-300 font-normal leading-5 tracking-wide">
               {description}
+            </p>
+            {/* {
+              ingredients.map((ing, idx)=><p key={idx}>{ing}</p>)
+            } */}
+            <p className='text-gray-500 font-normal leading-5 tracking-wide'>
+              Ingredients:
+              {
+                ingredients.map((ing, idx) => <p key={idx}>{idx + 1}. {ing} </p>)
+              }
             </p>
             <router-link
               to="blog/detail"
               className="font-bold hover:text-blue-400 text-gray-100"
-              ></router-link
+            ></router-link
             >
           </div>
           <div className="flex flex-row items-end h-full w-full px-4 mt-4">
@@ -69,10 +87,10 @@ const MealCard = ({item}) => {
                 />
                 <div className="">
                   <p className="text-sm font-semibold tracking-wide text-gray-200">
-                    Author
+                    {adminName}
                   </p>
                   <p className="text-xs font-light tracking-wider text-gray-300">
-                    2 Hours ago
+                    {timeDate}
                   </p>
                 </div>
               </div>
@@ -98,9 +116,9 @@ const MealCard = ({item}) => {
             </div>
           </div>
         </div>
-</div>
-     </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default MealCard;

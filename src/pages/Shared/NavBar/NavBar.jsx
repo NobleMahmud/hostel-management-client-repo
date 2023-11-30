@@ -36,7 +36,7 @@ import logo from '../../../../public/logo.png'
 
 function NavListMenu() {
     const navigate = useNavigate();
-    const {user, logOut } = useAuth();
+    const { user, logOut } = useAuth();
 
     const navListMenuItems = [
         {
@@ -56,18 +56,18 @@ function NavListMenu() {
         }
     ];
 
-   
+
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
     const renderItems = navListMenuItems.map(
         ({ icon, title, description }, key) => (
             <a key={key}>
-                <MenuItem disabled={title===user?.displayName && true}  onClick={() => {
-                                if (title === "Log Out") {
-                                    navigate('/login')
-                                    logOut();
-                                }
-                            }} className="flex items-center gap-3 rounded-lg">
+                <MenuItem disabled={title === user?.displayName && true} onClick={() => {
+                    if (title === "Log Out") {
+                        navigate('/login')
+                        logOut();
+                    }
+                }} className="flex items-center gap-3 rounded-lg">
                     <div className="flex items-center justify-center rounded-lg !bg-blue-gray p-2 ">
                         {" "}
                         {React.createElement(icon, {
@@ -80,12 +80,12 @@ function NavListMenu() {
                             variant="h6"
                             color="blue-gray"
                             className="flex items-center text-blue-gray-100 text-sm font-bold"
-                            // onClick={() => {
-                            //     if (title === "Log Out") {
-                            //         // navigate('/login')
-                            //         logOut();
-                            //     }
-                            // }}
+                        // onClick={() => {
+                        //     if (title === "Log Out") {
+                        //         // navigate('/login')
+                        //         logOut();
+                        //     }
+                        // }}
 
                         >
                             {title}
@@ -184,20 +184,32 @@ function NavList() {
                     color="blue-gray"
                     className="font-medium"
                 >
-                    <ListItem className="flex items-center text-blue-gray-100 gap-2 py-2 pr-4">upcoming meals notification icon</ListItem>
+                    <ListItem className="flex items-center text-blue-gray-100 gap-2 py-2 pr-4">
+                        {/* upcoming meals notification icon */}
+                        <div className="relative">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 cursor-pointer" viewBox="0 0 371.263 371.263">
+                                <path
+                                    d="M305.402 234.794v-70.54c0-52.396-33.533-98.085-79.702-115.151.539-2.695.838-5.449.838-8.204C226.539 18.324 208.215 0 185.64 0s-40.899 18.324-40.899 40.899c0 2.695.299 5.389.778 7.964-15.868 5.629-30.539 14.551-43.054 26.647-23.593 22.755-36.587 53.354-36.587 86.169v73.115c0 2.575-2.096 4.731-4.731 4.731-22.096 0-40.959 16.647-42.995 37.845-1.138 11.797 2.755 23.533 10.719 32.276 7.904 8.683 19.222 13.713 31.018 13.713h72.217c2.994 26.887 25.869 47.905 53.534 47.905s50.54-21.018 53.534-47.905h72.217c11.797 0 23.114-5.03 31.018-13.713 7.904-8.743 11.797-20.479 10.719-32.276-2.036-21.198-20.958-37.845-42.995-37.845a4.704 4.704 0 0 1-4.731-4.731zM185.64 23.952c9.341 0 16.946 7.605 16.946 16.946 0 .778-.12 1.497-.24 2.275-4.072-.599-8.204-1.018-12.336-1.138-7.126-.24-14.132.24-21.078 1.198-.12-.778-.24-1.497-.24-2.275.002-9.401 7.607-17.006 16.948-17.006zm0 323.358c-14.431 0-26.527-10.3-29.342-23.952h58.683c-2.813 13.653-14.909 23.952-29.341 23.952zm143.655-67.665c.479 5.15-1.138 10.12-4.551 13.892-3.533 3.773-8.204 5.868-13.353 5.868H59.89c-5.15 0-9.82-2.096-13.294-5.868-3.473-3.772-5.09-8.743-4.611-13.892.838-9.042 9.282-16.168 19.162-16.168 15.809 0 28.683-12.874 28.683-28.683v-73.115c0-26.228 10.419-50.719 29.282-68.923 18.024-17.425 41.498-26.887 66.528-26.887 1.198 0 2.335 0 3.533.06 50.839 1.796 92.277 45.929 92.277 98.325v70.54c0 15.809 12.874 28.683 28.683 28.683 9.88 0 18.264 7.126 19.162 16.168z"
+                                    data-original="#000000" />
+                            </svg>
+                            <span
+                                className="bg-red-500 text-[10px] px-1.5 font-semibold min-w-[20px] h-5 flex items-center justify-center text-white rounded-full absolute -top-2 left-[60%]">3</span>
+                        </div>
+                    </ListItem>
                 </Typography>
             </Link>
-            
-           
-           
+
+
+
         </List>
     );
 }
 const NavBar = () => {
 
-    
+
     const { user } = useAuth();
-    
+
+        console.log(user);
 
     const [openNav, setOpenNav] = React.useState(false);
 
@@ -217,8 +229,8 @@ const NavBar = () => {
                     className="mr-4 cursor-pointer py-1.5 lg:ml-2"
                 >
                     <div className="flex items-center justify-center">
-                    <img className="w-14 h-14" src={logo} alt="" />
-                    <p>HungryHall</p>
+                        <img className="w-14 h-14" src={logo} alt="" />
+                        <p>HungryHall</p>
                     </div>
                 </Typography>
                 <div className="hidden lg:block">
@@ -264,11 +276,11 @@ const NavBar = () => {
                     {/* <Link to="/login"><Button className="bg-blue-gray-50 hover:bg-blue-gray-100" variant="text" size="sm" color="blue-gray">
                         Log In
                     </Button> </Link> */}
-                     {
+                    {
                         user ?
 
                             <div className="z-30">
-                            <NavListMenu />
+                                <NavListMenu />
                             </div>
 
                             :

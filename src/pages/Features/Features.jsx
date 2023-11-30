@@ -1,5 +1,5 @@
 import React from 'react';
-import bg from "../../assets/images/bg.gif"
+// import bg from "../../assets/images/bg.gif"
 
 const Features = () => {
     return (
@@ -52,7 +52,7 @@ const Features = () => {
           </div>
         </div>
         <div>
-          <img src={bg} className="w-full rounded-md" />
+          <img src="https://i.ibb.co/3YdxpYP/bg.gif" className="w-full rounded-md" />
         </div>
       </div>
     </div>

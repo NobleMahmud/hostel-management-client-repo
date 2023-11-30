@@ -7,11 +7,11 @@ import {
 } from "@material-tailwind/react";
 import MealTab from "./mealTab";
 import { useEffect, useRef, useState } from "react";
-import MealCard from "../MealCard/MealCard";
+// import MealCard from "../MealCard/MealCard";
 
 const TabSystem = ({ meals }) => {
   const allButton = useRef();
-  console.log('meals: ', meals);
+  // console.log('meals: ', meals);
   // const {mealTitle, mealCategory, mealImage, ingredients, description, price, rating, timeDate, likes, reviews, adminName, adminEmail} = meals;
 
   const categories = ['All', 'Breakfast', 'Lunch', 'Dinner']
@@ -72,10 +72,10 @@ useEffect(()=>{
 
  {/* Render content for the "All" tab */}
  <TabPanel value="All">
-  <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 my-10">
   {all.map((item, idx) => (
       <div key={idx}>
-        <MealCard item={item}></MealCard>
+        <MealTab item={item}></MealTab>
       </div>
     ))}
   </div>
@@ -83,36 +83,36 @@ useEffect(()=>{
 
   {/* Render content for other tabs */}
   <TabPanel value="Breakfast">
-<div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 my-10">
 {all
       .filter(({ category }) => category === 'Breakfast')
       .map((item, idx) => (
         <div key={idx}>
-          <MealCard item={item}></MealCard>
+          <MealTab item={item}></MealTab>
         </div>
       ))}
 </div>
   </TabPanel>
 
   <TabPanel value="Lunch">
-   <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
+   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 my-10">
    {all
       .filter(({ category }) => category === 'Lunch')
       .map((item, idx) => (
         <div key={idx}>
-          <MealCard item={item}></MealCard>
+          <MealTab item={item}></MealTab>
         </div>
       ))}
    </div>
   </TabPanel>
 
   <TabPanel value="Dinner">
-    <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 my-10">
     {all
       .filter(({ category }) => category === 'Dinner')
       .map((item, idx) => (
         <div key={idx}>
-          <MealCard item={item}></MealCard>
+          <MealTab item={item}></MealTab>
         </div>
       ))}
     </div>
