@@ -9,25 +9,21 @@ import Experiment from '../../Experiment/Experiment';
 import Plans from '../../Plans/Plans';
 import useMeals from '../../../hooks/useMeals';
 import ExtraSection from '../../ExtraSection/ExtraSection';
-// import About3 from '../../About/About3';
+
 
 const Home = () => {
     const [meals, loading, refetch] = useMeals();
-    // const [meals, setMeals] = useState([]);
-    // useEffect(()=>{
-    //     fetch('/meals.json')
-    //     .then(res=>res.json())
-    //     .then(data=>{
-    //         console.log(data.length);
-    //         setMeals(data)
-    //     })
-    // },[])
+    const [totalMeal, setTotalMeal] = useState(null);
+    useEffect(() => {
+        setTotalMeal(meals);
+        console.log(totalMeal);
+    }, [meals])
     return (
         <div className='min-h-[50vh]'>
             {/* <Banner></Banner> */}
             <About2></About2>
-            <SearchButton></SearchButton>
-            <TabSystem meals={meals}></TabSystem>
+            <SearchButton  meals={totalMeal} setTotalMeal={setTotalMeal}></SearchButton>
+            <TabSystem meals={totalMeal}></TabSystem>
             <Features></Features>
             <Experiment></Experiment>
            <Plans></Plans>

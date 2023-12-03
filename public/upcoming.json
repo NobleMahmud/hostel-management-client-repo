@@ -1,0 +1,107 @@
+[
+    {
+        "title": "Vegetarian Delight Pasta",
+        "category": "Lunch",
+        "img": "https://i.ibb.co/rdDkztz/bruna-branco-t8h-Tmte4-O-g-unsplash.jpg",
+        "ingredients": ["Whole Wheat Pasta", "Tomato Sauce", "Mushrooms", "Spinach"],
+        "description": "Indulge in the goodness of our Vegetarian Delight Pasta. Made with whole wheat pasta, rich tomato sauce, sautéed mushrooms, and fresh spinach. A healthy and delicious lunch option!",
+        "price": 6.99,
+        "rating": 4,
+        "timeDate": "2023-12-01T12:30:00",
+        "likes": [],
+        "adminName": "ChefVeggie",
+        "adminEmail": "veggie@example.com"
+      },
+      {
+        "title": "Sizzling Chicken Fajitas",
+        "category": "Dinner",
+        "img": "https://i.ibb.co/Lp5rgSG/chicken-fajitas-98151-1.jpg",
+        "ingredients": ["Chicken Strips", "Bell Peppers", "Onions", "Fajita Seasoning"],
+        "description": "Experience the sizzle with our mouth-watering Chicken Fajitas. Tender chicken strips, colorful bell peppers, and onions seasoned to perfection. A flavorful dinner option for spice lovers!",
+        "price": 8.99,
+        "rating": 4,
+        "timeDate": "2023-12-01T19:00:00",
+        "likes": [],
+        "adminName": "SpicyChef",
+        "adminEmail": "spicy@example.com"
+      },
+      {
+        "title": "Spaghetti Carbonara",
+        "category": "Dinner",
+        "img": "https://i.ibb.co/gPv89Db/1571366437.jpg",
+        "ingredients": ["Spaghetti", "Bacon", "Eggs", "Parmesan Cheese"],
+        "description": "Indulge in the classic taste of our Spaghetti Carbonara. Al dente spaghetti tossed with crispy bacon, eggs, and Parmesan cheese. A rich and satisfying dinner choice.",
+        "price": 9.99,
+        "rating": 4.5,
+        "timeDate": "2023-12-02T18:45:00",
+        "likes": [],
+        "adminName": "ItalianChef",
+        "adminEmail": "italian@example.com"
+      },
+      {
+        "title": "Chicken Caesar Salad",
+        "category": "Salad",
+        "img": "https://i.ibb.co/k6r8kv3/chicken-caesar-salad-28-1200.jpg",
+        "ingredients": ["Grilled Chicken", "Romaine Lettuce", "Croutons", "Caesar Dressing"],
+        "description": "Savor the classic taste of our Chicken Caesar Salad. Grilled chicken, crisp romaine lettuce, crunchy croutons, and tossed in zesty Caesar dressing. A timeless salad choice.",
+        "price": 7.99,
+        "rating": 4,
+        "timeDate": "2023-12-03T12:00:00",
+        "likes": [],
+        "adminName": "ClassicChef",
+        "adminEmail": "classic@example.com"
+      },
+      {
+        "title": "Teriyaki Salmon Bowl",
+        "category": "Dinner",
+        "img": "https://i.ibb.co/F68B1z5/Teriyaki-Salmon-Sushi-Bowl-recipe-4.jpg",
+        "ingredients": ["Teriyaki Salmon", "Brown Rice", "Stir-Fried Vegetables", "Sesame Seeds"],
+        "description": "Delight your taste buds with our Teriyaki Salmon Bowl. Succulent teriyaki-glazed salmon, fluffy brown rice, stir-fried vegetables, and a sprinkle of sesame seeds. A flavorful dinner option.",
+        "price": 10.49,
+        "rating": 5,
+        "timeDate": "2023-12-04T20:00:00",
+        "likes": [],
+        "adminName": "AsianChef",
+        "adminEmail": "asian@example.com"
+      },
+      {
+        "title": "Margherita Pizza",
+        "category": "Dinner",
+        "img": "https://i.ibb.co/K7f929T/Desktop-Margherita-Pizza.jpg",
+        "ingredients": ["Pizza Dough", "Tomato Sauce", "Fresh Mozzarella", "Basil"],
+        "description": "Enjoy the simplicity of our Margherita Pizza. Crispy pizza dough topped with tomato sauce, fresh mozzarella, and aromatic basil. A classic pizza choice for pizza lovers.",
+        "price": 11.99,
+        "rating": 4,
+        "timeDate": "2023-12-04T17:30:00",
+        "likes": [],
+        "adminName": "PizzaChef",
+        "adminEmail": "pizza@example.com"
+      },
+      {
+        "title": "Berry Smoothie Bowl",
+        "category": "Breakfast",
+        "img": "https://i.ibb.co/wcf9MLB/Berry-Smoothie-Bowl-EXPS-JMZ18-224489-B03-08-5b.jpg",
+        "ingredients": ["Mixed Berries", "Greek Yogurt", "Granola", "Honey"],
+        "description": "Kickstart your day with our refreshing Berry Smoothie Bowl. A blend of mixed berries, creamy Greek yogurt, crunchy granola, and a drizzle of honey. A healthy and delicious breakfast choice.",
+        "price": 5.99,
+        "rating": 4,
+        "timeDate": "2023-12-05T08:30:00",
+        "likes": [],
+        "adminName": "BreakfastChef",
+        "adminEmail": "breakfast@example.com"
+      },
+      {
+        "title": "Shrimp Scampi Pasta",
+        "category": "Dinner",
+        "img": "https://i.ibb.co/c86Gchh/vday-shrimpscampi-4493-s4x3.jpg",
+        "ingredients": ["Linguine", "Shrimp", "Garlic", "White Wine Sauce"],
+        "description": "Indulge in the flavors of our Shrimp Scampi Pasta. Perfectly cooked linguine, succulent shrimp, garlic-infused in a delightful white wine sauce. A luxurious dinner option for seafood enthusiasts.",
+        "price": 12.99,
+        "rating": 4.5,
+        "timeDate": "2023-12-05T19:45:00",
+        "likes": [],
+        "adminName": "SeafoodChef",
+        "adminEmail": "seafood@example.com"
+      }
+                                             
+]

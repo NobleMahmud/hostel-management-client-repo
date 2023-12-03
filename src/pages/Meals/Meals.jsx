@@ -1,10 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useMeals from "../../hooks/useMeals";
 import MealTab from '../TabSystem/MealTab'
-import Filter from "../../components/Filter";
+// import Filter from "../../components/Filter";
 import SearchButton from "../../components/SearchButton";
+import Filter2 from "../../components/Filter2";
+import Loader from "../../components/Loader";
 const Meals = () => {
     const [meals, loading, refetch] = useMeals();
+
+    const [totalMeal, setTotalMeal] = useState(null);
+    useEffect(() => {
+        setTotalMeal(meals);
+        console.log(totalMeal);
+    }, [meals])
+    // 
+    console.log(totalMeal);
+    // 
     return (
 
         <div>
@@ -17,14 +28,24 @@ const Meals = () => {
                 </div>
             </div>
             {/* banner */}
-            <SearchButton></SearchButton>
-            <Filter></Filter>
-
-            <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 p-4 my-20">
-                {
-                    meals.map(item => <MealTab key={item._id} item={item}></MealTab>)
-                }
+            <div className="flex md:flex-row-reverse flex-col items-center justify-center">
+                <SearchButton meals={totalMeal} setTotalMeal={setTotalMeal}></SearchButton>
+                <Filter2 setTotalMeal={setTotalMeal}></Filter2>
             </div>
+
+            {
+                totalMeal?.length > 0 ?
+                    <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 p-4 mt-4 mb-20">
+                        {
+                            totalMeal.map(item => <MealTab key={item._id} item={item}></MealTab>)
+                        }
+                    </div>
+                    :
+
+                    // <img className="mx-auto" src="https://i.ibb.co/fHvTKTm/loading.gif" alt="" />
+                    <Loader></Loader>
+
+            }
         </div>
     );
 };

@@ -31,6 +31,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth/useAuth";
 import logo from '../../../../public/logo.png'
+import useUpcoming from "../../../hooks/useUpcoming";
 
 
 
@@ -64,7 +65,7 @@ function NavListMenu() {
             <a key={key}>
                 <MenuItem disabled={title === user?.displayName && true} onClick={() => {
                     if (title === "Log Out") {
-                        navigate('/login')
+                        // navigate('/login')
                         logOut();
                     }
                 }} className="flex items-center gap-3 rounded-lg">
@@ -152,6 +153,8 @@ function NavListMenu() {
 }
 
 function NavList() {
+    const [upcoming] = useUpcoming();
+    console.log(upcoming);
     return (
         <List className="mt-4 mb-6 p-0  lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
             <Link to="/">
@@ -193,7 +196,7 @@ function NavList() {
                                     data-original="#000000" />
                             </svg>
                             <span
-                                className="bg-red-500 text-[10px] px-1.5 font-semibold min-w-[20px] h-5 flex items-center justify-center text-white rounded-full absolute -top-2 left-[60%]">3</span>
+                                className="bg-red-500 text-[10px] px-1.5 font-semibold min-w-[20px] h-5 flex items-center justify-center text-white rounded-full absolute -top-2 left-[60%]">{upcoming?.length}</span>
                         </div>
                     </ListItem>
                 </Typography>
@@ -206,6 +209,7 @@ function NavList() {
 }
 const NavBar = () => {
 
+   
 
     const { user } = useAuth();
 

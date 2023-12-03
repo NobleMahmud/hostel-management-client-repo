@@ -43,20 +43,12 @@ const SignUp2 = () => {
                         prevUser.photoURL = res.data.data.display_url;
                         return { ...prevUser };
                     })
-                    // Swal.fire({
-                    //     position: "center",
-                    //     icon: "success",
-                    //     title: "User created successfully",
-                    //     showConfirmButton: false,
-                    //     timer: 1500
-                    // });
-                    // navigate("/");
                     // create user entry in database
                 const userInfo={
                     name: data.name,
                     email: data.email,
                     role: 'member',
-                    badges: 'Bronze'
+                    badges: ['Bronze']
                 }
                 axiosPublic.post('/users', userInfo)
                 .then(res=>{
@@ -86,22 +78,8 @@ const SignUp2 = () => {
                     footer: '<a href="#">Try with a different email adress</a>'
                   });
             })
-
-            // updateUser(name, photo)
-            // .then(() => {
-            //     setUser((prevUser) => {
-            //         prevUser.displayName = data.name;
-            //         prevUser.photoURL = res.data.data.display_url;
-            //         return { ...prevUser };
-            //     })
-            //     navigate("/");
-            // })
-            // .catch(() => {
-            //     console.log('error');
-            // })
            
         }
-        //
           
         }
     return (

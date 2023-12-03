@@ -2,15 +2,15 @@ import {
     createBrowserRouter} from "react-router-dom";
 import Main from "../LayOut/Main";
 import Home from "../pages/Home/Home/Home";
-import LogIn from "../pages/LogIn/LogIn";
-import SignUp from "../pages/SignUp/SignUp";
 import SignUp2 from "../pages/SignUp/SignUp2";
-import LogIn2 from "../pages/LogIn/LogIn2";
+// import LogIn2 from "../pages/LogIn/LogIn2";
 import Meals from "../pages/Meals/Meals";
 import Upcoming from "../pages/Upcoming/Upcoming";
 import MealDetails from "../pages/MealDetails/MealDetails";
-import MealCard from "../pages/MealCard/MealCard";
 import useAxiosPublic from "../hooks/useAxiosPublic";
+import Packages from "../pages/Packages/Packages";
+import LogIn from "../pages/LogIn/LogIn";
+import PrivateRoute from "./PrivateRoute";
 
 const axiosPublic = useAxiosPublic();
   export const router = createBrowserRouter([
@@ -24,7 +24,7 @@ const axiosPublic = useAxiosPublic();
         },
         {
           path: "/login",
-          element: <LogIn2></LogIn2>,
+          element: <LogIn></LogIn>,
         },
         {
           path: "/signup",
@@ -46,6 +46,10 @@ const axiosPublic = useAxiosPublic();
           path: "/upcoming",
           element: <Upcoming></Upcoming>
         },
+        {
+          path: '/packages/:name',
+          element: <PrivateRoute><Packages></Packages></PrivateRoute>
+        }
       ],
     },
   ]);

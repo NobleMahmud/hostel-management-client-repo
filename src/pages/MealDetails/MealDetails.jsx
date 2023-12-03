@@ -3,14 +3,15 @@ import { Link, useLoaderData } from "react-router-dom";
 import Review from "../../components/Review";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-// import GetReviews from "../../components/GetReviews";
 import { FaThumbsUp } from "react-icons/fa6"
 import { FcLike } from "react-icons/fc";
 import useAuth from "../../hooks/useAuth/useAuth";
-import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import { useEffect } from "react";
+import useAxiosSecure from "../../hooks/useAuth/useAxiosSecure";
 
 const MealDetails = () => {
+  const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
   const item = useLoaderData();
   console.log(item);
@@ -25,7 +26,17 @@ const MealDetails = () => {
     queryKey: ['reviews'],
     queryFn: async () => {
       const res = await axiosPublic.get(`/reviews?id=${id}`)
-      // const res = await axiosSecure.get(`/carts?email=${user.email}`)
+      return res.data;
+    }
+  })
+  //user related api
+  const currentUser = user?.email;
+  console.log();
+  
+  const { data: users = []} = useQuery({
+    queryKey: ['users'],
+    queryFn: async () => {
+      const res = await axiosPublic.get(`/users/${currentUser}`)
       return res.data;
     }
   })
@@ -62,8 +73,39 @@ const MealDetails = () => {
     }
 
   }
+
+  const requestedMeal = {
+    user: user?.displayName,
+    email: currentUser,
+    mealId: _id,
+    title: title,
+    likes: likes?.length,
+    reviews: reviews?.length,
+    status: 'pending'
+  }
+  console.log(requestedMeal);
   const handleRequest = () => {
-    user ? alert('order confirmed')
+    user ? 
+    users?.badges?.length>1 || users?.badges?.length==null? 
+
+    axiosSecure.post('/mealRequests', requestedMeal)
+    .then(res=>{console.log(res.data)}) &&
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: 'MEAL REQUESTED',
+      showConfirmButton: false,
+      timer: 1500
+    }) && refetch()
+    : 
+    Swal.fire({
+      icon: 'warning',
+      title: 'BUY A PLAN FIRST',
+      timer: 2000,
+      customClass: {
+        background: ' #ffcc00',
+      }
+    })
       : Swal.fire({
         icon: 'info',
         title: 'PLEASE LOG IN FIRST',
@@ -74,6 +116,7 @@ const MealDetails = () => {
       })
 
   }
+  console.log('current user', users?.badges?.length);
   console.log('totalLikes', totalLikes?.likes);
 
   console.log('includesEmail');

@@ -27,7 +27,7 @@ const MealTab = ({ item }) => {
             className=""
           />
           <div className="mt-8 flex items-center">
-            <h3 className="text-xl text-[#333] font-bold flex-1">$150.90</h3>
+            <h3 className="text-xl text-[#333] font-bold flex-1">${price}</h3>
             <div className="bg-gray-50 flex items-center justify-center cursor-pointer">
               <Link to={`/meals/${_id}`}><button type="button"
                 className="px-6 py-2.5 rounded-md flex items-center text-[#333] text-sm tracking-wider font-semibold border-2 border-[#333] outline-none hover:text-white hover:bg-[#333] active:bg-[#111] transition-all">

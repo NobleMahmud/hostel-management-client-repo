@@ -13,13 +13,15 @@ const SocialLogin = () => {
             .then(result => {
                 console.log(result.user);
                 const userInfo = {
-                    email: result.user?.email,
                     name: result.user?.displayName,
-                    role: 'member'
+                    email: result.user?.email,
+                    role: 'member',
+                    badges: ['Bronze']
                 }
                 axiosPublic.post('/users', userInfo)
                     .then(res => {
                         console.log(res.data);
+                       if(res.data.insertedId){
                         Swal.fire({
                             position: "center",
                             icon: "success",
@@ -27,6 +29,16 @@ const SocialLogin = () => {
                             showConfirmButton: false,
                             timer: 1500
                           });
+                       }
+                       if(res.data.message){
+                        Swal.fire({
+                            position: "center",
+                            icon: "success",
+                            title: "Log in successful",
+                            showConfirmButton: false,
+                            timer: 1500
+                          });
+                      }
                         navigate('/')
                     })
             })
